@@ -286,6 +286,27 @@ export default function Home() {
             ))}
           </div>
         </motion.section>
+
+        {/* Verify CTA */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="mt-12 text-center"
+        >
+          <div className="rounded-3xl bg-gradient-to-r from-[#FF8C42]/10 to-[#00C897]/10 p-10 border border-[#FF8C42]/10">
+            <h3 className="text-2xl font-bold mb-3">Already protected an image?</h3>
+            <p className="text-[#6B6E6E] mb-6 max-w-lg mx-auto">
+              Upload any image to our verification scanner and check if it carries an Aegis-ID signature.
+            </p>
+            <a
+              href="/verify"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-[#2D3436] hover:bg-[#1a1f20] text-white rounded-full font-semibold shadow-lg transition-all"
+            >
+              🔍 Verify an Image
+            </a>
+          </div>
+        </motion.section>
       </main>
 
       {/* Character Toast Notifications */}
