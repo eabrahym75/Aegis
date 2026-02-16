@@ -29,6 +29,8 @@ FROM node:18-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=10000
+ENV HOSTNAME=0.0.0.0
+ENV PYTHON_PATH=/usr/bin/python3
 
 # Install Python + runtime libs (no build tools needed)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -36,9 +38,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 libglib2.0-0 libjpeg62-turbo libpng16-16 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy Python packages from builder
-COPY --from=builder /usr/local/lib/python3.11/dist-packages /usr/local/lib/python3.11/dist-packages
+# Copy ALL Python packages from builder (use wildcard to handle any Python version)
+COPY --from=builder /usr/local/lib/python3* /usr/local/lib/python3/
 COPY --from=builder /usr/lib/python3/dist-packages /usr/lib/python3/dist-packages
+
+# Symlink so Python can find packages regardless of minor version
+RUN PYVER=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')") && \
+    if [ -d /usr/local/lib/python3/dist-packages ] && [ ! -d /usr/local/lib/python${PYVER}/dist-packages ]; then \
+    mkdir -p /usr/local/lib/python${PYVER} && \
+    ln -s /usr/local/lib/python3/dist-packages /usr/local/lib/python${PYVER}/dist-packages; \
+    fi
 
 # Copy built Next.js app
 COPY --from=builder /app/.next/standalone ./
