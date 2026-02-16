@@ -137,28 +137,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FFFBF0] via-[#FFFBF0] to-[#FFF6EA] text-[#2D3436]">
-      {/* Header section */}
-      <header className="sticky top-0 z-40 bg-[#FFFBF0]/80 backdrop-blur-md border-b border-[#FF8C42]/10">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
-          >
-            <span className="text-3xl" aria-hidden="true">
-              🛡️
-            </span>
-            <h1 className="text-3xl font-black tracking-tight bg-gradient-to-r from-[#FF8C42] to-[#00C897] bg-clip-text text-transparent">
-              Aegis Shield
-            </h1>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <button className="px-6 py-3 bg-[#FF8C42] hover:bg-[#FF7620] text-white rounded-full font-semibold shadow-lg shadow-orange-200/40 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF8C42]">
-              Armoring Center
-            </button>
-          </motion.div>
-        </div>
-      </header>
 
       <main className="max-w-6xl mx-auto px-6 py-12 space-y-12">
         {/* Hero section with headline */}
@@ -222,8 +200,8 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 + idx * 0.1 }}
                   className={`rounded-3xl p-6 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF8C42] ${tier === t
-                      ? "bg-gradient-to-br from-[#FF8C42]/20 to-[#FF8C42]/10 border-3 border-[#FF8C42] shadow-lg shadow-orange-200/30"
-                      : "bg-white border-2 border-[#FFF6EA] hover:border-[#FF8C42]/50 shadow-md"
+                    ? "bg-gradient-to-br from-[#FF8C42]/20 to-[#FF8C42]/10 border-3 border-[#FF8C42] shadow-lg shadow-orange-200/30"
+                    : "bg-white border-2 border-[#FFF6EA] hover:border-[#FF8C42]/50 shadow-md"
                     }`}
                 >
                   <div className="flex items-start gap-4">
@@ -231,7 +209,7 @@ export default function Home() {
                       <ShieldCharacter tier={t} size={80} reducedMotion={prefersReducedMotion} />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold capitalize mb-1">{t} Shield</h4>
+                      <h4 className="text-lg font-bold mb-1">{t.charAt(0).toUpperCase() + t.slice(1)} Shield</h4>
                       <p className="text-sm text-[#6B6E6E]">{TIER_DESCRIPTIONS[t]}</p>
                       {tier === t && (
                         <motion.div className="mt-3 inline-block px-3 py-1 bg-[#00C897]/20 text-[#00C897] rounded-full text-xs font-semibold">

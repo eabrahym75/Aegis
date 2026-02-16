@@ -7,8 +7,13 @@ const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Aegis — Secure Image Protection",
-  description: "Protect your images from unauthorized manipulation.",
-  metadataBase: undefined,
+  description: "Protect your images from unauthorized manipulation with invisible steganographic protection.",
+  metadataBase: new URL('https://aegis-10z0.onrender.com'),
+  openGraph: {
+    title: "Aegis — Secure Image Protection",
+    description: "Protect your images from unauthorized AI manipulation. Invisible steganographic shields that survive metadata stripping.",
+    siteName: "Aegis Shield",
+  },
 };
 
 import { Header } from "@/components/Header";
@@ -20,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${font.className} antialiased selection:bg-indigo-500/30 selection:text-indigo-200 min-h-screen flex flex-col`}>
+    <html lang="en">
+      <body className={`${font.className} antialiased min-h-screen flex flex-col`}>
         <Header />
         <main className="flex-1 flex flex-col">
           {children}

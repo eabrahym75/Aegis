@@ -62,7 +62,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-slate-950 text-slate-50 antialiased;
+    @apply bg-[#FFFBF0] text-[#2D3436] antialiased;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;

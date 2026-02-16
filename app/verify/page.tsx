@@ -3,7 +3,7 @@ import { Shield, Lock, Search } from "lucide-react";
 
 export default function VerifyPage() {
     return (
-        <div className="flex-1 flex flex-col py-20 px-6 relative overflow-hidden">
+        <div className="flex-1 flex flex-col py-20 px-6 relative overflow-hidden bg-slate-950 text-slate-50">
             {/* Background blobs */}
             <div className="absolute top-1/4 left-0 w-96 h-96 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
             <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-violet-500/10 blur-[100px] rounded-full pointer-events-none" />
