@@ -1,0 +1,31 @@
+{
+    "claim_generator": "Aegis_Shield_v1.0",
+    "assertions": [
+        {
+            "label": "c2pa.actions",
+            "data": {
+                "actions": [
+                    {
+                        "action": "c2pa.protected",
+                        "softwareAgent": "Aegis_Shield_v1.0",
+                        "description": "Adversarial noise applied to prevent unauthorized AI manipulation"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "org.project-aegis.protection",
+            "data": {
+                "owner": "A Verified User",
+                "consent_status": "Active",
+                "prohibit_ai_training": true,
+                "prohibit_manipulation": true,
+                "protection_layers": [
+                    "PGD_Noise",
+                    "LSB_Ghost_ID"
+                ],
+                "contact": "https://project-aegis.internal/verify"
+            }
+        }
+    ]
+}

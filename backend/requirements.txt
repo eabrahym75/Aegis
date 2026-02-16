@@ -1,0 +1,7 @@
+numpy==2.2.6
+opencv-python==4.12.0.88
+pillow==12.1.0
+c2pa-python>=0.28.0
+cryptography
+torch>=2.1.0
+adversarial-robustness-toolbox>=1.16.0
