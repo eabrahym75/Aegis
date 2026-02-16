@@ -3,7 +3,7 @@ services:
     name: aegis
     runtime: docker
     dockerfilePath: ./Dockerfile
-    repo: https://github.com/Xy-nab/consent-locked-images.git
+    repo: https://github.com/eabrahym75/Aegis.git
     branch: main
     plan: free
     envVars:
